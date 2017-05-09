@@ -1,0 +1,24 @@
+<!-- <div class="jumbotron">
+     <h1 class="title">衣食住行--> 马上就来</h1>
+     <p class="slogan">上门服务生活的方方面面
+     <br>
+     快捷·高效·安全·保障
+     </p>
+     <p class="lead"><a class="btn btn-lg btn-danger" href="/jobs">马上应征</a></p>
+   </div> -->
+
+
+<div class="row">
+  <% @products.each do |product| %>
+    <div class="col-xs-6 col-md-3">
+      <%= link_to product_path(product) do %>
+        <% if product.image.present? %>
+          <%= image_tag(product.image.thumb.url, class: "thumbnail") %>
+        <% else %>
+          <%= image_tag("http://placehold.it/200x200&text=No Pic", class: "thumbnail") %>
+        <% end %>
+      <% end %>
+      <%= product.title %> ￥ <%= product.price %>
+    </div>
+  <% end %>
+</div>
